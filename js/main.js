@@ -15,10 +15,7 @@ function getRandomNumber(firstNumber, secondNumber) {
 getRandomNumber();
 
 function checkLineLength(line, maxLength) {
-  if (line.length <= maxLength) {
-    return true;
-  }
-  return false;
+  return line.length <= maxLength;
 }
 
 checkLineLength();
