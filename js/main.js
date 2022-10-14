@@ -31,7 +31,7 @@ function getRandomNumber(firstNumber, secondNumber) {
 
 getRandomNumber();
 
-const descriptPicture = (index) => ({
+const createPicture = (index) => ({
   id: index,
   url: `photos/${ index }.jpg`,
   description: 'Эта фотография сделана одним из наших авторов',
@@ -39,8 +39,6 @@ const descriptPicture = (index) => ({
   comments: getRandomNumber(CommentsNumber.MIN, CommentsNumber.MAX),
 });
 
-descriptPicture();
-
-const userPictures = Array.from({length: PICTURES_NUMBER}, (_, pictureIndex) => descriptPicture (pictureIndex + 1));
+const userPictures = () => Array.from({length: PICTURES_NUMBER}, (_,pictureIndex) => createPicture (pictureIndex + 1));
 
 userPictures();
