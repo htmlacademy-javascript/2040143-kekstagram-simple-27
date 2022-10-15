@@ -1,4 +1,4 @@
-import {getRandomNumber} from './util.js';
+import {getRandomNumber} from './utils.js';
 
 const PICTURES_NUMBER = 25;
 const LikesNumber = {
@@ -19,7 +19,10 @@ const createPicture = (index) => ({
   comments: getRandomNumber(CommentsNumber.MIN, CommentsNumber.MAX),
 });
 
-const userPictures = () => Array.from({length: PICTURES_NUMBER}, (_, pictureIndex) => createPicture(pictureIndex + 1));
+export function createPictures() {
+  const userPictures = Array.from({length: PICTURES_NUMBER}, (_, pictureIndex) => createPicture(pictureIndex + 1));
+  return userPictures;
+}
 
-userPictures();
-export {createPicture};
+//const userPictures = () => Array.from({length: PICTURES_NUMBER}, (_, pictureIndex) => createPicture(pictureIndex + 1));
+
