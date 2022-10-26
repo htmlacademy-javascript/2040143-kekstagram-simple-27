@@ -1,15 +1,9 @@
-import {createPictures} from './create-pictures.js';
+export const createThumbnails = function (pictures) {
+  const thumbnailsTemplate = document.querySelector('#picture').content.querySelector('.picture');
+  const thumbnailsList = document.querySelector('.pictures');
+  const userPicturesFragment = document.createDocumentFragment();
 
-const thumbnailsTemplate = document.querySelector('#picture').content.querySelector('.picture');
-const thumbnailsList = document.querySelector('.pictures');
-
-const userPictures = createPictures();
-
-const userPicturesFragment = document.createDocumentFragment();
-
-export const addUserPictures = function () {
-
-  userPictures.forEach ((picture) => {
+  pictures.forEach ((picture) => {
     const thumbnailElement = thumbnailsTemplate.cloneNode(true);
     thumbnailElement.querySelector('.picture__img').src = picture.url;
     thumbnailElement.querySelector('.picture__likes').textContent = picture.likes;
