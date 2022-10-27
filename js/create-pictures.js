@@ -23,6 +23,3 @@ export function createPictures() {
   const userPictures = Array.from({length: PICTURES_NUMBER}, (_, pictureIndex) => createPicture(pictureIndex + 1));
   return userPictures;
 }
-
-//const userPictures = () => Array.from({length: PICTURES_NUMBER}, (_, pictureIndex) => createPicture(pictureIndex + 1));
-

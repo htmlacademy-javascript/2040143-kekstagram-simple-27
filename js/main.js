@@ -1,2 +1,4 @@
+import {createThumbnails} from './create-thumbnails.js';
 import {createPictures} from './create-pictures.js';
-createPictures ();
+const pictures = createPictures();
+createThumbnails(pictures);
