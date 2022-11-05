@@ -1,11 +1,11 @@
 import {isEscapeKey, isEnterKey} from './utils.js';
 
-
 const uploadPicture = document.querySelector('#upload-file');
 const pictureComment = document.querySelector('.text__description');
 const redactorPicture = document.querySelector('.img-upload__overlay');
 const body = document.querySelector('body');
 const imageFormCloseButton = document.querySelector('.img-upload__cancel');
+
 
 export const initOpenCloseForm = function () {
   const onPictureFormEscDown = (evt) => {
@@ -15,13 +15,9 @@ export const initOpenCloseForm = function () {
     }
   };
 
-  uploadPicture.addEventListener('change', () => {
-    openPictureForm();
-  });
+  uploadPicture.addEventListener('change', openPictureForm);
 
-  imageFormCloseButton.addEventListener('click', () => {
-    closePictureForm();
-  });
+  imageFormCloseButton.addEventListener('click', closePictureForm);
 
   imageFormCloseButton.addEventListener('keydown', (evt) => {
     if (isEnterKey(evt)) {
