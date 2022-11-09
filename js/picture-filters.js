@@ -49,8 +49,6 @@ export const initPictureFilters = function() {
       style: 'none',
       min: 1,
       max: 100,
-      step: '',
-      unit: ''
     }
   ];
 
