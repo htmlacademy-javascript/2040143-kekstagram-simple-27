@@ -1,5 +1,6 @@
 import {isEscapeKey, isEnterKey} from './utils.js';
-import {resetSize} from './size.js';
+import {resizePicture} from './resize-picture.js';
+import {removeFilter} from './picture-filters.js';
 
 const uploadPicture = document.querySelector('#upload-file');
 const pictureComment = document.querySelector('.text__description');
@@ -28,8 +29,7 @@ export const initOpenCloseForm = function () {
   function openPictureForm () {
     redactorPicture.classList.remove('hidden');
     body.classList.add('modal-open');
-    resetSize();
-
+    resizePicture();
     document.addEventListener('keydown', onPictureFormEscDown);
   }
 
@@ -38,7 +38,7 @@ export const initOpenCloseForm = function () {
     body.classList.remove('modal-open');
     uploadPicture.value = '';
     pictureComment.value = '';
-
+    removeFilter();
     document.removeEventListener('keydown', onPictureFormEscDown);
   }
 };
