@@ -13,7 +13,7 @@ export function getData(createThumbnails) {
 }
 
 export function sendData (onSuccess, onFail, body) {
-  fetch('https://27.javascript.pages.academ/kekstagram-simple',
+  fetch('https://27.javascript.pages.academy/kekstagram-simple',
     {
       method: 'POST',
       body,
