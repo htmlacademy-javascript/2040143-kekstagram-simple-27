@@ -7,6 +7,8 @@ const pictureComment = document.querySelector('.text__description');
 const redactorPicture = document.querySelector('.img-upload__overlay');
 const body = document.querySelector('body');
 const imageFormCloseButton = document.querySelector('.img-upload__cancel');
+const defaultInput = document.querySelector('#effect-none');
+
 
 export const initOpenCloseForm = function () {
   const onPictureFormEscDown = (evt) => {
@@ -31,14 +33,20 @@ export const initOpenCloseForm = function () {
     body.classList.add('modal-open');
     resizePicture();
     document.addEventListener('keydown', onPictureFormEscDown);
+    defaultInput.checked = true;
   }
 
   function closePictureForm () {
-    redactorPicture.classList.add('hidden');
-    body.classList.remove('modal-open');
-    uploadPicture.value = '';
-    pictureComment.value = '';
-    removeFilter();
+    closeForm ();
     document.removeEventListener('keydown', onPictureFormEscDown);
   }
 };
+
+export function closeForm () {
+  redactorPicture.classList.add('hidden');
+  body.classList.remove('modal-open');
+  uploadPicture.value = '';
+  pictureComment.value = '';
+  removeFilter();
+}
+

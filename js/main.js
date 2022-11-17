@@ -1,14 +1,18 @@
 import {createThumbnails} from './create-thumbnails.js';
-import {createPictures} from './create-pictures.js';
 import {initOpenCloseForm} from './open-close-form.js';
 import {initValidatePristine} from './validate-pristine.js';
 import {initResizePicture} from './resize-picture.js';
 import {initPictureFilters} from './picture-filters.js';
+import { getData } from './api.js';
 
-const pictures = createPictures();
+import {closeForm} from './open-close-form.js';
 
-createThumbnails(pictures);
-initValidatePristine();
 initOpenCloseForm();
 initResizePicture();
 initPictureFilters();
+initValidatePristine(closeForm);
+
+getData((pictures) => {
+  createThumbnails(pictures);
+});
+
