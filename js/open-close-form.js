@@ -4,9 +4,11 @@ import {removeFilter} from './picture-filters.js';
 
 const uploadPicture = document.querySelector('#upload-file');
 const pictureComment = document.querySelector('.text__description');
-const redactorPicture = document.querySelector('.img-upload__overlay');
+const editorPicture = document.querySelector('.img-upload__overlay');
 const body = document.querySelector('body');
 const imageFormCloseButton = document.querySelector('.img-upload__cancel');
+const defaultInput = document.querySelector('#effect-none');
+
 
 export const initOpenCloseForm = function () {
   const onPictureFormEscDown = (evt) => {
@@ -27,18 +29,24 @@ export const initOpenCloseForm = function () {
   });
 
   function openPictureForm () {
-    redactorPicture.classList.remove('hidden');
+    editorPicture.classList.remove('hidden');
     body.classList.add('modal-open');
     resizePicture();
     document.addEventListener('keydown', onPictureFormEscDown);
+    defaultInput.checked = true;
   }
 
   function closePictureForm () {
-    redactorPicture.classList.add('hidden');
-    body.classList.remove('modal-open');
-    uploadPicture.value = '';
-    pictureComment.value = '';
-    removeFilter();
+    closeForm ();
     document.removeEventListener('keydown', onPictureFormEscDown);
   }
 };
+
+export function closeForm () {
+  editorPicture.classList.add('hidden');
+  body.classList.remove('modal-open');
+  uploadPicture.value = '';
+  pictureComment.value = '';
+  removeFilter();
+}
+
