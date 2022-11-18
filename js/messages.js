@@ -5,6 +5,8 @@ const uploadSuccessMessage = document.querySelector('#success').content.querySel
 const bodyElement = document.querySelector('body');
 const successMessageCloseButton = uploadSuccessMessage.querySelector('.success__button');
 const errorMessageCloseButton = uploadErrorMessage.querySelector('.error__button');
+const ERROR_MESSAGE_TIME = 8000;
+const errorDownloadMessage = document.querySelector('#download-error').content.querySelector('.download-error');
 
 const onEscMessageDown = (evt) => {
   if (isEscapeKey(evt)) {
@@ -45,3 +47,10 @@ function removeMessage () {
   document.removeEventListener('keydown', onEscMessageDown);
 }
 
+export function showErrorDownloadMessage() {
+  bodyElement.append(errorDownloadMessage);
+
+  setTimeout(() => {
+    errorDownloadMessage.remove();
+  }, ERROR_MESSAGE_TIME);
+}

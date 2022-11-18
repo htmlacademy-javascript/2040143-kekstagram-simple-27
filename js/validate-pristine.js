@@ -17,10 +17,12 @@ export const initValidatePristine = function (onSuccess) {
     const isValid = pristine.validate();
     if (isValid) {
       sendData(
-        () => (onSuccess(),
-        showUploadSuccessMessage()),
-        () => showUploadErrorMessage(),
         new FormData(evt.target),
+        () => {
+          onSuccess();
+          showUploadSuccessMessage();
+        },
+        () => showUploadErrorMessage,
       );
     }
   });

@@ -1197,6 +1197,22 @@ main {
   * Экраны ошибки и успеха загрузки изображения
   */
 
+.download-error {
+  z-index: 100;
+  position: absolute;
+  display: block;
+  left: 20%;
+  right: 20%;
+  top: 60%;
+  padding: 40px 150px;
+  font-size: 20px;
+  line-height: 34px;
+  text-align: center;
+  background-color:#8f8448;
+  color: #000000;
+  min-height: 60px;
+}
+
 .error,
 .success {
   position: fixed;

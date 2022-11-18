@@ -1,19 +1,19 @@
-import {showUploadErrorMessage} from './messages.js';
-import {blockError} from './utils.js';
+import {showUploadErrorMessage, showErrorDownloadMessage} from './messages.js';
+const BASE_URL = 'https://27.javascript.pages.academy/kekstagram-simple/';
 
 export function getData(createThumbnails) {
-  fetch('https://27.javascript.pages.academy/kekstagram-simple/data')
+  fetch(`${BASE_URL}data`)
     .then((response) => response.json())
     .then((pictures) => {
       createThumbnails(pictures);
     })
     .catch(() => {
-      blockError('Тут должны быть красивые фотографии, но они почему-то не загрузились. Что? Кто криворукий?! Да вы бы сами хоть раз пробовали написать этот fetch!!!');
+      showErrorDownloadMessage('Тут должны быть красивые фотографии, но они почему-то не загрузились. Что? Кто криворукий?! Да вы бы сами хоть раз пробовали написать этот fetch!!!');
     });
 }
 
-export function sendData (onSuccess, onFail, body) {
-  fetch('https://27.javascript.pages.academy/kekstagram-simple',
+export function sendData (body, onSuccess, onFail) {
+  fetch(`${BASE_URL}`,
     {
       method: 'POST',
       body,

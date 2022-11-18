@@ -12,7 +12,7 @@ initResizePicture();
 initPictureFilters();
 initValidatePristine(closeForm);
 
-getData((pictures) => {
-  createThumbnails(pictures);
+getData((onSuccess) => {
+  createThumbnails(onSuccess);
 });
 
