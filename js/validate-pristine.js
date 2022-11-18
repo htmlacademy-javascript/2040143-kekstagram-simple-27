@@ -22,7 +22,7 @@ export const initValidatePristine = function (onSuccess) {
           onSuccess();
           showUploadSuccessMessage();
         },
-        () => showUploadErrorMessage,
+        showUploadErrorMessage,
       );
     }
   });

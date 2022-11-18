@@ -1,11 +1,11 @@
 import {showUploadErrorMessage, showErrorDownloadMessage} from './messages.js';
 const BASE_URL = 'https://27.javascript.pages.academy/kekstagram-simple/';
 
-export function getData(createThumbnails) {
+export function getData(onSuccess) {
   fetch(`${BASE_URL}data`)
     .then((response) => response.json())
     .then((pictures) => {
-      createThumbnails(pictures);
+      onSuccess(pictures);
     })
     .catch(() => {
       showErrorDownloadMessage('Тут должны быть красивые фотографии, но они почему-то не загрузились. Что? Кто криворукий?! Да вы бы сами хоть раз пробовали написать этот fetch!!!');
