@@ -11,7 +11,7 @@ const pristine = new Pristine(userPictureForm, {
   errorTextClass: 'img-upload__error-text'
 });
 
-export const initValidatePristine = function (onSuccess) {
+export const initValidatePristine = (onSuccess) => {
   userPictureForm.addEventListener('submit', (evt) => {
     evt.preventDefault();
     const isValid = pristine.validate();
