@@ -1,6 +1,3 @@
-const picturePreview = document.querySelector('.img-upload__preview');
-const uploadForm = document.querySelector('.img-upload__form');
-
 const FILTERS = [
   {
     name: 'none',
@@ -27,9 +24,10 @@ const FILTERS = [
     style: 'brightness',
   },
 ];
-
 const FILTER_DEFAULT = FILTERS[0];
 let currentFilter = FILTER_DEFAULT;
+const picturePreview = document.querySelector('.img-upload__preview');
+const uploadForm = document.querySelector('.img-upload__form');
 
 export const removeFilter = function() {
   picturePreview.classList.remove(`effects__preview--${currentFilter.name}`);

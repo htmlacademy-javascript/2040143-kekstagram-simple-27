@@ -4,7 +4,6 @@ import {initValidatePristine} from './validate-pristine.js';
 import {initResizePicture} from './resize-picture.js';
 import {initPictureFilters} from './picture-filters.js';
 import { getData } from './api.js';
-
 import {closeForm} from './open-close-form.js';
 
 initOpenCloseForm();

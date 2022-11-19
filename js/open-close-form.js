@@ -9,8 +9,15 @@ const body = document.querySelector('body');
 const imageFormCloseButton = document.querySelector('.img-upload__cancel');
 const defaultInput = document.querySelector('#effect-none');
 
+export const closeForm = () => {
+  editorPicture.classList.add('hidden');
+  body.classList.remove('modal-open');
+  uploadPicture.value = '';
+  pictureComment.value = '';
+  removeFilter();
+};
 
-export const initOpenCloseForm = function () {
+export const initOpenCloseForm = () => {
   const onPictureFormEscDown = (evt) => {
     if (isEscapeKey(evt)) {
       evt.preventDefault();
@@ -42,11 +49,4 @@ export const initOpenCloseForm = function () {
   }
 };
 
-export function closeForm () {
-  editorPicture.classList.add('hidden');
-  body.classList.remove('modal-open');
-  uploadPicture.value = '';
-  pictureComment.value = '';
-  removeFilter();
-}
 

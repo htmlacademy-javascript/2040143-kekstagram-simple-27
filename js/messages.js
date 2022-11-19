@@ -46,7 +46,7 @@ function removeMessage () {
   document.removeEventListener('keydown', onEscMessageDown);
 }
 
-export function showErrorDownloadMessage() {
+export const showErrorDownloadMessage = () => {
   const ERROR_MESSAGE_TIME = 8000;
   const errorDownloadMessage = document.querySelector('#download-error').content.querySelector('.download-error');
   bodyElement.append(errorDownloadMessage);
@@ -54,4 +54,4 @@ export function showErrorDownloadMessage() {
   setTimeout(() => {
     errorDownloadMessage.remove();
   }, ERROR_MESSAGE_TIME);
-}
+};
